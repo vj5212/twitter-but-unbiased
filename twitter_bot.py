@@ -33,7 +33,7 @@ with open(Pkl_Filename, 'rb') as file:
 
 ### FEATURIZE TWEET FROM TWITTER ###
 def predict(tweet):
-    print("The tweet that's coming through is {}".format(tweet))
+    # print("The tweet that's coming through is {}".format(tweet), flush=True)
     tweet_list = [tweet]
     df = pd.DataFrame(tweet_list)
     df.columns = [1]
@@ -60,13 +60,16 @@ def predict(tweet):
 
     features = last_hidden_states[0][:,0,:].numpy()
 
-    return lr_clf.predict(features[0, np.newaxis])[0]
+    predicted = lr_clf.predict(features[0, np.newaxis])[0]
+    print("The tweet is {}".format(predicted), flush=True)
+    
+    return predicted 
 
 def reply_to_tweets():
     print('retrieving and replying to tweets...', flush=True)
     for mention in tweepy.Cursor(api.search, q="@unbiased_bot").items(5):
         print(str(mention.id) + ' - ' + mention.text, flush=True)
-        reply_to_tweet = str(api.get_status(mention.in_reply_to_status_id).text)
+        reply_to_tweet = api.get_status(mention.in_reply_to_status_id).text
 
         print('predicting...', flush=True)
         predicted = predict(reply_to_tweet)
@@ -92,6 +95,7 @@ def reply_to_tweets():
                         ' Hey there! The tweet you are currently looking at is quite a ' + predicted_in_tweet + ' tweet. If you want to take a look at more tweets with the whole left and right predicament, here ya go: http://127.0.0.1:5000/', mention.id)
         except:
             pass
+
 while True:
     reply_to_tweets()
     time.sleep(30)
