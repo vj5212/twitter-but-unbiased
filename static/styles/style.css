@@ -1,0 +1,165 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.split-left {
+  background-color: #a5c6b1;
+  height: 100%;
+}
+
+.text-search {
+  position: absolute;
+  left: 3%;
+  top: 45%;
+}
+
+h1 {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 3.5em;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+
+/* form{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: block;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.fa{
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+form{
+  width: 250px;
+  cursor: pointer;
+}
+
+.fa, input{
+  background: #07051a;
+  color: white;
+} */
+
+.form-control, .form-control:focus, .form-select{
+  background: #07051a;
+  color: white;
+}
+
+.logo-image {
+  background-image: url("../assets/logo.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 50%;
+}
+
+.split-right {
+  background-image: url("../assets/bidentrump.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.text-search h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 2.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+.keyword {
+  width: 250px;
+}
+
+.date {
+  font-size: 0.7em;
+}
+
+.bot {
+  text-align: center;
+  margin-top: 15%;
+  margin-left: 30%;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: -0.055em;
+  }
+
+  .logo-image {
+    background-image: url("../assets/logo.png");
+    background-repeat: no-repeat;
+    background-size: 100% 60%;
+    height: 50%;
+  }
+
+  .mobile {
+    background-color: #a5c6b1;
+  }
+
+  .text-search {
+    position: absolute;
+    left: 3%;
+    top: 50%;
+  }
+
+  .keyword {
+    width: 170px;
+  }
+}

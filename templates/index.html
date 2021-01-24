@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- CSS -->
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" type="text/css" />
+    
+    <title>Twitter, unbiased</title>
+    <link rel='shortcut icon' type='image/x-icon' href="../static/assets/favicon.ico" />
+  </head>
+  <body>
+
+    <div class="container-fluid h-100 one">
+        <div class="row h-100">
+          <div class="col-md-4 split-left">
+            <div class="logo-image"></div>
+              <div class="text-search">
+                  <h1>Twitter, unbiased</h1>
+                  <form method="POST" action="/tweets">
+                    
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <select class="form-select" aria-label="Default select example" name="selectattribute">
+                          <option value="" style="display:none" selected disabled>Filter By</option>
+                          <option value="1">Date Range &nbsp</option>
+                          <option value="2">Popular</option>
+                          <option value="3">Verified</option>
+                        </select>
+                      </div>
+
+                      <input type="text" name="datefilter" class="date hide" value="" placeholder="Date" autocomplete="off"/>
+                      <input type="text" class="keyword" name="searchinput"  autocomplete="off" aria-label="Text input with dropdown button">
+
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-dark" type="submit">
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- <input type="search" name="search-input" autocomplete="off">
+                    <button type="submit">
+                      <i class="fa fa-search"></i>
+                    </button> -->
+
+                  </form>
+
+                  <a class="btn btn-lg btn-primary bot" href="https://twitter.com/unbiased_bot" target="_blank" role="button">
+                    <i class="fa fa-twitter"></i>
+                    Twitter Bot
+                  </a>
+
+              </div>
+          </div>
+          <div class="col-md-8 split-right">
+                <!-- The Biden/Trump image is the background of this div -->
+          </div>
+        </div>
+    </div>
+
+    <div class="container-fluid h-100 mobile hide">
+      <div class="logo-image"></div>
+      <div class="text-search">
+        <h1>Twitter, unbiased</h1>
+        <form method="POST" action="/tweets">
+                    
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <select class="form-select" aria-label="Default select example" name="selectattribute">
+                <option value="" style="display:none" selected disabled>Filter By</option>
+                <option value="1">Date Range &nbsp</option>
+                <option value="2">Popular</option>
+                <option value="3">Verified</option>
+              </select>
+            </div>
+
+            <input type="text" name="datefilter" class="date hide" value="" placeholder="Date" autocomplete="off"/>
+            <input type="text" class="keyword" name="searchinput"  autocomplete="off" aria-label="Text input with dropdown button">
+
+            <div class="input-group-append">
+              <button class="btn btn-outline-dark" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- <input type="search" name="search-input" autocomplete="off">
+          <button type="submit">
+            <i class="fa fa-search"></i>
+          </button> -->
+
+        </form>
+
+        <a class="btn btn-lg btn-primary bot" href="https://twitter.com/unbiased_bot" target="_blank" role="button">
+          <i class="fa fa-twitter"></i>
+          Twitter Bot
+        </a>
+
+    </div>
+  </div>
+
+  
+
+    <!-- Jquery -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <!-- Bootstrap Bundle with Popper -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+     <!-- Date Picker -->
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+      <script>
+      $(window).resize(function(){location.reload();});
+
+      $(document).ready(function() {
+        if(jQuery(window).width() < 1200 ) {
+            $(".one").toggleClass('hide');
+            $('.mobile').toggleClass('hide');
+        }
+
+        $(".form-select").change(function () {
+            var input = $(this).val();
+            if(input == 1) {
+              $(".date").removeClass('hide');
+              if(jQuery(window).width() < 1200 ) {
+                $(".date").width(85);
+              }
+              else {
+                $(".date").width(125);
+              }
+
+              if(jQuery(window).width() < 1200 ) {
+                $(".keyword").width(85);
+              }
+              else {
+                $(".keyword").width(125);
+              }
+            }
+            else {
+              $(".date").addClass('hide');
+              if(jQuery(window).width() < 1200 ) {
+                $(".keyword").width(170);
+              }
+              else {
+                $(".keyword").width(250);
+              }
+            }
+        });
+
+        $(function() {
+            $('input[name="datefilter"]').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+
+            $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+            });
+
+            $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+                $(this).val('');
+            });
+
+          });
+
+      });
+      </script>
+
+  </body>
+</html>

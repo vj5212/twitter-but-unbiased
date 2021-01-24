@@ -1,0 +1,62 @@
+html,
+body {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+
+h1 {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 4.5em;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+
+.hide {
+  display: none;
+}
+
+.new-left {
+  text-align: center;
+  background-color: #aec2e4;
+  overflow: auto;
+  height: 100%;
+}
+
+.back_icon {
+  float: left;
+  color: white;
+  font-size: 2em;
+}
+
+.new-right {
+  text-align: center;
+  background-color: #ffb4b6;
+  overflow: auto;
+  height: 100%;
+}
+
+form{
+  padding-right: 15%;
+  padding-bottom: 5%;
+}
+
+h6 {
+  color: black;
+}
+
+#selectedForTweets {
+  padding-left: 14%;
+}
+
+input {
+  display: none;
+}
+
+.btn {
+  font-size: 10px;
+}
+
+.forms {
+  padding-left: 25%;
+}

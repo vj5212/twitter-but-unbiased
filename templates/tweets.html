@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link href="{{ url_for('static', filename='styles/tweets.css') }}" rel="stylesheet" type="text/css" />
+
+    <title>Twitter, unbiased</title>
+    <link rel='shortcut icon' type='image/x-icon' href="../static/assets/favicon.ico" />
+  </head>
+  <body>
+    <div class="container-fluid h-100 two">
+      <div class="row h-100">
+        <div class="col-md-6 new-left">
+          <a href="/" id="back" class="back_icon"><i class="fa fa-chevron-left"></i></a>
+          <h1>Left</h1>
+          <div id="selectedForTweets">
+            {%for tweet in tweet_left_link_list%}
+            <blockquote class="twitter-tweet" data-chrome="noheader, noborders, transparent">
+              <a href="{{tweet}}"></a>
+            </blockquote>
+            
+            <form method="POST" class="forms l{{loop.index}} hide">
+              <label for=""><i>What do you think about this tweet? &nbsp</i></label>
+              <input type="radio" class="btn-check left" name="options" id="loption1{{loop.index}}" autocomplete="off">
+              <label class="btn btn-outline-success rounded-circle" for="loption1{{loop.index}}"><i class="fa fa-arrow-left"></i></label>
+
+              <input type="radio" class="btn-check left" name="options" id="loption2{{loop.index}}" autocomplete="off">
+              <label class="btn btn-outline-dark middle rounded-circle" for="loption2{{loop.index}}"><i class="fa fa-question"></i></label>
+
+              <input type="radio" class="btn-check left" name="options" id="loption3{{loop.index}}" autocomplete="off">
+              <label class="btn btn-outline-danger rounded-circle" for="loption3{{loop.index}}"><i class="fa fa-arrow-right"></i></label>
+            </form>
+
+            {%endfor%}
+          </div>
+        </div>
+        <div class="col-md-6 new-right">
+          <h1>Right</h1>
+          <div id="selectedForTweets">
+            {%for tweet in tweet_right_link_list%}
+            <blockquote class="twitter-tweet" data-chrome="noheader, noborders, transparent">
+              <a href="{{tweet}}"></a>
+            </blockquote>
+
+            <form method="POST" class="forms r{{loop.index}} hide">
+              <label for=""><i>What do you think about this tweet? &nbsp</i></label>
+              <input type="radio" class="btn-check right" name="options" id="roption1{{loop.index}}" autocomplete="off">
+              <label class="btn btn-outline-success rounded-circle" for="roption1{{loop.index}}"><i class="fa fa-arrow-left"></i></label>
+
+              <input type="radio" class="btn-check right" name="options" id="roption2{{loop.index}}" autocomplete="off">
+              <label class="btn btn-outline-dark middle rounded-circle" for="roption2{{loop.index}}"><i class="fa fa-question"></i></label>
+
+              <input type="radio" class="btn-check right" name="options" id="roption3{{loop.index}}" autocomplete="off">
+              <label class="btn btn-outline-danger rounded-circle" for="roption3{{loop.index}}"><i class="fa fa-arrow-right"></i></label>
+            </form>
+
+            {%endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Section -->
+
+    <div id="container1" class="container-fluid h-100 mobile hide">
+
+    </div>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Twitter -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <script>
+      $(window).resize(function(){location.reload();});
+
+      window.addEventListener('load', function () {
+        setTimeout(
+          function() 
+          {
+            $(".forms").removeClass('hide');
+          }, 3000);
+        
+      })
+
+      $('input[type=radio]').click( function() {
+        var inputId = $(this).attr("id");
+        var lastChar = inputId.substring(8);
+        var thisClass;
+        if($(this).hasClass('left') == true) {
+          thisClass = '.l'.concat(lastChar);
+        }
+        if($(this).hasClass('right') == true) {
+          thisClass = '.r'.concat(lastChar);
+        }
+        $(thisClass).addClass('hide');
+
+        $.ajax({
+          data : {
+            id : inputId[7],
+            form: thisClass
+          },
+          type : 'POST',
+          url : '/send'
+        });
+
+        event.preventDefault();
+      });
+
+      $(document).ready(function() {
+        if(jQuery(window).width() < 1200 ) {
+            $(".two").toggleClass('hide');
+            $('.mobile').toggleClass('hide');
+        }
+      });
+      </script>
+
+  </body>
+</html>
