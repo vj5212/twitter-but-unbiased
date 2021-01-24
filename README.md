@@ -23,6 +23,8 @@ See a tweet and wanna see what side it belongs to? Or maybe a tweet has a hashta
 * Tweepy - Twitter API's python wrapper for the bot and the app
 * Heroku - Host the application online
 
+![](https://i.ibb.co/Jj35mVb/ezgif-com-gif-maker.gif)
+
 ### Contributors
 
 * Vedant Juneja (Front-End Dev) - Rochester Institute of Technology
