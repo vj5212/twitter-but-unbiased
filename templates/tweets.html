@@ -17,7 +17,7 @@
     <!-- CSS -->
     <link href="{{ url_for('static', filename='styles/tweets.css') }}" rel="stylesheet" type="text/css" />
 
-    <title>Twitter, unbiased</title>
+    <title>Twitter, but unbiased</title>
     <link rel='shortcut icon' type='image/x-icon' href="../static/assets/favicon.ico" />
   </head>
   <body>
@@ -46,6 +46,11 @@
 
             {%endfor%}
           </div>
+
+          <div class="footer-nav hide footer-left">
+            <p class="footer-text">See right tweets</p>
+          </div>
+          
         </div>
         <div class="col-md-6 new-right">
           <h1>Right</h1>
@@ -69,16 +74,16 @@
 
             {%endfor%}
           </div>
+
+          <div class="footer-nav hide footer-right">
+            <p class="footer-text">See left tweets</p>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <!-- Mobile Section -->
-
-    <div id="container1" class="container-fluid h-100 mobile hide">
-
-    </div>
-
+    
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
@@ -97,8 +102,6 @@
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <script>
-      $(window).resize(function(){location.reload();});
-
       window.addEventListener('load', function () {
         setTimeout(
           function() 
@@ -134,10 +137,24 @@
 
       $(document).ready(function() {
         if(jQuery(window).width() < 1200 ) {
-            $(".two").toggleClass('hide');
-            $('.mobile').toggleClass('hide');
+          $('.back_icon').addClass('hide');
+          $('.footer-left').removeClass('hide');
         }
+
+        $(".footer-left").on('click', function(){
+          $('.new-left').addClass('hide');
+          $('.footer-left').addClass('hide');
+          $('.footer-right').removeClass('hide');
+        });
+
+        $(".footer-right").on('click', function(){
+          $('.new-left').removeClass('hide');
+          $('.footer-left').removeClass('hide');
+          $('.footer-right').addClass('hide');
+        });
+
       });
+
       </script>
 
   </body>
