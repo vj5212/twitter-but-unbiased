@@ -18,7 +18,7 @@ numpy==1.19.5
 oauth2client==3.0.0
 oauthlib==3.1.0
 packaging==20.8
-pandas
+pandas==1.2.0
 protobuf==3.14.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
@@ -36,8 +36,7 @@ requests-toolbelt==0.7.0
 rsa==4.7
 sacremoses==0.0.43
 scikit-learn==0.24.0
-scipy
-selenium==3.141.0
+scipy==1.6.0
 six==1.15.0
 sklearn==0.0
 threadpoolctl==2.1.0
