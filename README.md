@@ -27,3 +27,7 @@ See a tweet and wanna see what side it belongs to? Or maybe a tweet has a hashta
 
 * Vedant Juneja (Front-End Dev) - Rochester Institute of Technology
 * Arshdeep Singh (Back-End Dev) - The University of Texas at Dallas
+
+### Links
+* Google Colab Notebook: https://colab.research.google.com/drive/1SElAQ57_YtvYmfHGvm2x5RvwdTPguY6I#scrollTo=izA3-6kffbdT
+* YouTube Video for Hack@Brown 2021: https://youtu.be/ebMf_U5z64M
