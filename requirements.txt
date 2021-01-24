@@ -36,7 +36,7 @@ requests-toolbelt==0.7.0
 rsa==4.7
 sacremoses==0.0.43
 scikit-learn==0.24.0
-scipy==1.6.0
+scipy
 selenium==3.141.0
 six==1.15.0
 sklearn==0.0
