@@ -11,69 +11,16 @@ body {
 
 .text-search {
   position: absolute;
-  left: 3%;
-  top: 45%;
+  left: 1%;
+  top: 50%;
 }
 
 h1 {
   font-family: "Montserrat Alternates", sans-serif;
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: 600;
   letter-spacing: -0.055em;
 }
-
-/* form{
-  position: relative;
-  top: 50%;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  background: white;
-  box-sizing: border-box;
-  border-radius: 25px;
-  border: 4px solid white;
-  padding: 5px;
-}
-
-input{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;;
-  height: 42.5px;
-  line-height: 30px;
-  outline: 0;
-  border: 0;
-  display: block;
-  font-size: 1em;
-  border-radius: 20px;
-  padding: 0 20px;
-}
-
-.fa{
-  box-sizing: border-box;
-  padding: 10px;
-  width: 42.5px;
-  height: 42.5px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 50%;
-  color: #07051a;
-  text-align: center;
-  font-size: 1.2em;
-  transition: all 1s;
-}
-
-form{
-  width: 250px;
-  cursor: pointer;
-}
-
-.fa, input{
-  background: #07051a;
-  color: white;
-} */
 
 .form-control, .form-control:focus, .form-select{
   background: #07051a;
@@ -137,7 +84,7 @@ form{
 @media screen and (max-width: 480px) {
   h1 {
     font-family: "Montserrat Alternates", sans-serif;
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
     letter-spacing: -0.055em;
   }
@@ -145,7 +92,7 @@ form{
   .logo-image {
     background-image: url("../assets/logo.png");
     background-repeat: no-repeat;
-    background-size: 100% 60%;
+    background-size: 100% 70%;
     height: 50%;
   }
 
