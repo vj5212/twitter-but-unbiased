@@ -36,4 +36,4 @@ See a tweet and wanna see what side it belongs to? Or maybe a tweet has a hashta
 ### Links
 * Google Colab Notebook: https://colab.research.google.com/drive/1SElAQ57_YtvYmfHGvm2x5RvwdTPguY6I#scrollTo=izA3-6kffbdT
 * YouTube Video for Hack@Brown 2021: https://youtu.be/ebMf_U5z64M
-* Devpost for Hack@Brown 2021: https://devpost.com/software/twitter-but-unbiased
+* Winner of the Wolfram Award, awarded to the top 25 hacks of the event. Devpost for Hack@Brown 2021: https://devpost.com/software/twitter-but-unbiased
